@@ -21,7 +21,7 @@ class Produk extends Component
 
     public function mount()
     {
-        if (auth()->user()->peran != 'admin') {
+        if (auth()->user()->peran != 'admin' && auth()->user()->peran != 'kasir' ) {
             abort(403);
         }
     }
