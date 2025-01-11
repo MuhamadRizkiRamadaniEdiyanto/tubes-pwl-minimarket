@@ -7,6 +7,7 @@
                     class="btn {{ $pilihanMenu == 'lihat' ? 'btn-primary' : 'btn-outline-primary' }}">
                     Semua Produk
                 </button>
+                @if(Auth::user()->peran == 'admin')
                 <button wire:click="pilihMenu('tambah')"
                     class="btn {{ $pilihanMenu == 'tambah' ? 'btn-primary' : 'btn-outline-primary' }}">
                     Tambah Produk
@@ -18,6 +19,7 @@
                 <button wire:loading class="btn btn-info">
                     Loading ...
                 </button>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -35,7 +37,9 @@
                                     <th>Nama</th>
                                     <th>Harga</th>
                                     <th>Stok</th>
+                                    @if(Auth::user()->peran == 'admin')
                                     <th>Data</th>
+                                    @endif
                                 </thead>
                                 <tbody>
                                     @foreach ($semuaProduk as $produk)
@@ -45,6 +49,7 @@
                                             <td>{{ $produk->nama }}</td>
                                             <td>{{ $produk->harga }}</td>
                                             <td>{{ $produk->stok }}</td>
+                                            @if(Auth::user()->peran == 'admin')
                                             <td>
                                                 <button wire:click="pilihEdit({{ $produk->id }})"
                                                     class="btn {{ $pilihanMenu == 'edit' ? 'btn-primary' : 'btn-outline-primary' }}">
@@ -55,6 +60,7 @@
                                                     Hapus produk
                                                 </button>
                                             </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -63,6 +69,7 @@
                     </div>
                 @elseif ($pilihanMenu == 'tambah')
                     <div class="card border-primary">
+                        
                         <div class="card-header">
                             Tambah Produk
                         </div>

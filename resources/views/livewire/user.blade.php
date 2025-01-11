@@ -85,6 +85,8 @@
                                 <option>--Pilih Peran--</option>
                                 <option value="kasir">Kasir</option>
                                 <option value="admin">Admin</option>
+                                <option value="admin">manager</option>
+                                <option value="admin">supervisor</option>
                             </select>
                             @error('peran')
                             <span class="text-danger">{{ $message }}</span>

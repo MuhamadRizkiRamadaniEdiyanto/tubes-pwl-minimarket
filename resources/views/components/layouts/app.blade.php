@@ -95,7 +95,7 @@
                                 Pengguna
                             </a>
                         @endif
-                        @if (Auth::user()->peran == 'admin')
+                        @if(Auth::user()->peran == 'admin' || Auth::user()->peran == 'kasir')
                             <a href="{{ route('produk') }}" wire:navigate
                                 class="btn {{ request()->routeIs('produk') ? 'btn-primary' : 'btn-outline-primary' }}">
                                 Produk
