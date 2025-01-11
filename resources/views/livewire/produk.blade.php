@@ -37,7 +37,9 @@
                                     <th>Nama</th>
                                     <th>Harga</th>
                                     <th>Stok</th>
+                                    @if(Auth::user()->peran == 'admin')
                                     <th>Data</th>
+                                    @endif
                                 </thead>
                                 <tbody>
                                     @foreach ($semuaProduk as $produk)
@@ -47,6 +49,7 @@
                                             <td>{{ $produk->nama }}</td>
                                             <td>{{ $produk->harga }}</td>
                                             <td>{{ $produk->stok }}</td>
+                                            @if(Auth::user()->peran == 'admin')
                                             <td>
                                                 <button wire:click="pilihEdit({{ $produk->id }})"
                                                     class="btn {{ $pilihanMenu == 'edit' ? 'btn-primary' : 'btn-outline-primary' }}">
@@ -57,6 +60,7 @@
                                                     Hapus produk
                                                 </button>
                                             </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>
